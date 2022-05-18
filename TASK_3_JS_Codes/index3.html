@@ -1,0 +1,309 @@
+<html>
+
+<head>
+    <title>Check Armstrong Number</title>
+</head>
+<script>
+    function func3() {
+        let n = document.getElementById("n").value;
+        var regExp = /^[0-9]+$/;
+        isvalid = regExp.test(n);
+        if (document.querySelector('input[name="chose"]:checked') != null) {
+            if (n.length <= 0) {
+                document.getElementById("result").innerHTML = "Please Enter The Number";
+                return false;
+            }
+            if (isvalid) {
+                //1st no arg no return
+                if (document.getElementById("r1").checked == true) {
+                    function fun1() {
+                        let temp = n;
+                        let sum = 0;
+                        while (temp > 0) {
+                            let rem = temp % 10;
+                            sum += rem * rem * rem;
+                            temp = parseInt(temp / 10);
+
+                        }
+                        if (sum == n) {
+                            document.getElementById("result").innerHTML = (`${n} Is Armstrong Number`);
+                        }
+                        else {
+                            document.getElementById("result").innerHTML = (`${n} Is Not Palindrome Number`);
+                        }
+                    }
+                    fun1();
+                }
+                //2 with arg no return
+                if (document.getElementById("r2").checked == true) {
+                    function fun2(n) {
+
+                        let temp = n;
+                        let sum = 0;
+                        while (temp > 0) {
+                            let rem = temp % 10;
+                            sum += rem * rem * rem;
+                            temp = parseInt(temp / 10);
+
+                        }
+                        if (sum == n) {
+                            document.getElementById("result").innerHTML = (`${n} Is Armstrong Number`);
+                        }
+                        else {
+                            document.getElementById("result").innerHTML = (`${n} Is Not Armstrong Number`);
+                        }
+                    }
+                    fun2(n);
+                }
+                //no arg with return
+                if (document.getElementById("r3").checked == true) {
+                    function fun3() {
+
+                        let temp = n;
+                        let sum = 0;
+                        while (temp > 0) {
+                            let rem = temp % 10;
+                            sum += rem * rem * rem;
+                            temp = parseInt(temp / 10);
+
+                        }
+                        if (sum == n) {
+                            return true;
+                        }
+                        else {
+                            return false;
+                        }
+                    }
+                    let as = fun3();
+                    if (as)
+                        document.getElementById("result").innerHTML = (`${n} Is Armstrong Number`);
+                    else
+                        document.getElementById("result").innerHTML = (`${n} Is Not Armstrong Number`);
+                }
+                //with arg with return
+                if (document.getElementById("r4").checked == true) {
+                    function fun4(n) {
+
+                        let temp = n;
+                        let sum = 0;
+                        while (temp > 0) {
+                            let rem = temp % 10;
+                            sum += rem * rem * rem;
+                            temp = parseInt(temp / 10);
+
+                        }
+                        if (sum == n) {
+                            return true;
+                        }
+                        else {
+                            return false;
+                        }
+                    }
+                    let as = fun4(n);
+                    if (as)
+                        document.getElementById("result").innerHTML = (`${n} Is Armstrong Number`);
+                    else
+                        document.getElementById("result").innerHTML = (`${n} Is Not Armstrong Number`);
+                }
+                //function expression
+                if (document.getElementById("r5").checked == true) {
+                    function fun5() {
+
+                        let temp = n;
+                        let sum = 0;
+                        while (temp > 0) {
+                            let rem = temp % 10;
+                            sum += rem * rem * rem;
+                            temp = parseInt(temp / 10);
+
+                        }
+                        if (sum == n) {
+                            document.getElementById("result").innerHTML = (`${n} Is Armstrong Number`);
+                        }
+                        else {
+                            document.getElementById("result").innerHTML = (`${n} Is Not Armstrong Number`);
+                        }
+                    }
+
+                    let as = fun5;
+                    as();
+                }
+                //call back
+                if (document.getElementById("r6").checked == true) {
+                    function ask(question, yes, no) {
+                        if (fun6(question))
+                            yes()
+                        else
+                            no();
+                    }
+                    function yes() {
+                        document.getElementById("result").innerHTML = (`${n} Is Armstrong Number`);
+                    }
+                    function no() {
+                        document.getElementById("result").innerHTML = (`${n} Is Not Armstrong Number`);
+                    }
+                    function fun6() {
+
+                        let temp = n;
+                        let sum = 0;
+                        while (temp > 0) {
+                            let rem = temp % 10;
+                            sum += rem * rem * rem;
+                            temp = parseInt(temp / 10);
+
+                        }
+                        if (sum == n) {
+                            return true;
+                        }
+                        else {
+                            return false;
+                        }
+                    }
+                    ask(n, yes, no);
+                }
+                //arrow function
+                if (document.getElementById("r7").checked == true) {
+                    function fun7() {
+
+                        let temp = n;
+                        let sum = 0;
+                        while (temp > 0) {
+                            let rem = temp % 10;
+                            sum += rem * rem * rem;
+                            temp = parseInt(temp / 10);
+
+                        }
+                        if (sum == n) {
+                            return true;
+                        }
+                        else {
+                            return false;
+                        }
+                    }
+                    let arrow = fun7() ?
+                        () => document.getElementById("result").innerHTML = (`${n} Is Armstrong Number`) :
+                        () => document.getElementById("result").innerHTML = (`${n} Is Not Armstrong Number`);
+                    arrow();
+                }
+                //promise function
+                if (document.getElementById("r8").checked == true) {
+                    let promise = new Promise(function (resolve, reject) {
+                        let temp = n;
+                        let sum = 0;
+                        while (temp > 0) {
+                            let rem = temp % 10;
+                            sum += rem * rem * rem;
+                            temp = parseInt(temp / 10);
+
+                        }
+                        if (sum == n)
+                            resolve();
+                        else
+                            reject();
+                    })
+                    promise.then(function () {
+                        document.getElementById("result").innerHTML = (`${n} Is Armstrong Number`);
+                    }).catch(function () {
+                        document.getElementById("result").innerHTML = (`${n} Is Not Armstrong Number`);
+                    })
+
+                }
+            }
+            else
+                document.getElementById("result").innerHTML = "Please Enter Valid Input";
+        }
+        else
+            document.getElementById("result").innerHTML = "Please Select Any One Button";
+    }
+</script>
+
+<body>
+    <form>
+        <h2 style="color: cyan; text-align: center;">Check The Number Is Armstrong Or Not</h2>
+        <table border="1" align="center">
+            <tr>
+                <td>
+                    <label><b>Enter The Number</b></label>
+                </td>
+                <td>
+                    <input type="text" id="n" name="number">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>No Arg No Return Value</label>
+                </td>
+                <td>
+                    <input type="radio" id="r1" name="chose">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>With Arg No Return Value</label>
+                </td>
+                <td>
+                    <input type="radio" id="r2" name="chose">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>No Arg With Return Value</label>
+                </td>
+                <td>
+                    <input type="radio" id="r3" name="chose">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>With Arg With Return Value</label>
+                </td>
+                <td>
+                    <input type="radio" id="r4" name="chose">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Use Of Function Expression</label>
+                </td>
+                <td>
+                    <input type="radio" id="r5" name="chose">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Use Of Call Back</label>
+                </td>
+                <td>
+                    <input type="radio" id="r6" name="chose">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Use Of Arrow Function</label>
+                </td>
+                <td>
+                    <input type="radio" id="r7" name="chose">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Use Of Promise Function</label>
+                </td>
+                <td>
+                    <input type="radio" id="r8" name="chose">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" id="submit" value="Answer" onclick="func3()">
+                </td>
+                <td>
+                    <span id="result"></span>
+
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

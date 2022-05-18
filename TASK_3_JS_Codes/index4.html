@@ -1,0 +1,243 @@
+<html>
+
+<head>
+    <title>Adding A Digit</title>
+</head>
+<script>
+    function func4() {
+        let n = document.getElementById("n").value;
+        var regExp = /^[0-9]+$/;
+        isvalid = regExp.test(n);
+        if (document.querySelector('input[name="chose"]:checked')!=null)
+        {
+        if (n.length <= 0) {
+            document.getElementById("result").innerHTML = "Please Enter The Number";
+            return false;
+        }
+        if(isvalid)
+        {
+        //1st no arg no return
+        if (document.getElementById("r1").checked == true) {
+            function fun1() {
+                let sum = 0;
+                while (n) {
+                    rem = n % 10;
+                    sum = sum + rem;
+                    n = parseInt(n / 10);
+                }
+                document.getElementById("result").innerHTML = (`The Total Is ${sum} `);
+            }
+            fun1();
+        }
+        //with arg no return
+        if (document.getElementById("r2").checked == true) {
+            function fun2(n) {
+                let sum = 0;
+
+                while (n) {
+                    rem = n % 10;
+                    sum = sum + rem;
+                    n = parseInt(n / 10);
+                }
+                document.getElementById("result").innerHTML = (`The Total Is ${sum} `);
+            }
+            fun2(n);
+        }
+        //no arg with return
+        if (document.getElementById("r3").checked == true) {
+            function fun3() {
+                let sum = 0;
+
+                while (n) {
+                    rem = n % 10;
+                    sum = sum + rem;
+                    n = parseInt(n / 10);
+                }
+                return document.getElementById("result").innerHTML = (`The Total Is ${sum} `);
+            }
+            fun3();
+        }
+        //with arg with return 
+        if (document.getElementById("r4").checked == true) {
+            function fun4(n) {
+                let sum = 0;
+
+                while (n) {
+                    rem = n % 10;
+                    sum = sum + rem;
+                    n = parseInt(n / 10);
+                }
+                return document.getElementById("result").innerHTML = (`The Total Is ${sum} `);
+            }
+            fun4(n);
+        }
+        //function expression
+        if (document.getElementById("r5").checked == true) {
+            function fun5() {
+                let sum = 0;
+
+                while (n) {
+                    rem = n % 10;
+                    sum = sum + rem;
+                    n = parseInt(n / 10);
+                }
+                document.getElementById("result").innerHTML = (`The Total Is ${sum} `);
+            }
+            let ad = fun5;
+            ad();
+        }
+        //call back
+        if (document.getElementById("r6").checked == true) {
+            function ask(question, yes) {
+                if (fun6(question)) {
+                    yes()
+                }
+            }
+            function yes() {
+                document.getElementById("result").innerHTML = (`The Total Is ${sum} `);
+            }
+
+            function fun6() {
+                let sum = 0;
+
+                while (n) {
+                    rem = n % 10;
+                    sum = sum + rem;
+                    n = parseInt(n / 10);
+                }
+                return document.getElementById("result").innerHTML = (`The Total Is ${sum} `);
+            }
+            ask(n, yes);
+        }
+        //arrow function
+        if (document.getElementById("r7").checked == true) {
+            const fun7 = () => {
+                let sum = 0;
+
+                while (n) {
+                    rem = n % 10;
+                    sum = sum + rem;
+                    n = parseInt(n / 10);
+                }
+                return document.getElementById("result").innerHTML = (`The Total Is ${sum} `);
+            }
+            fun7();
+        }
+        //promise function
+        if (document.getElementById("r8").checked == true) {
+            let sum = 0;
+            let promise = new Promise(function (resolve) {
+                
+                
+                while (n) {
+                    let rem = n % 10;
+                    sum = sum + rem;
+                    n = parseInt(n / 10);
+                }
+                resolve();
+
+            })
+            promise.then(function () {
+                document.getElementById("result").innerHTML = (`The Total Is ${sum} `);
+            })
+
+        }
+        }
+        else
+            document.getElementById("result").innerHTML="Please Enter Valid Input";
+        }
+        else
+            document.getElementById("result").innerHTML="Please Select Any One Button";
+    }
+</script>
+
+<body>
+    <form>
+        <h2 style="color: cyan; text-align: center;">Adding A Digit</h2>
+        <table border="1" align="center">
+            <tr>
+                <td>
+                    <label><b>Enter The Number</b></label>
+                </td>
+                <td>
+                    <input type="text" id="n" name="number">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>No Arg No Return Value</label>
+                </td>
+                <td>
+                    <input type="radio" id="r1" name="chose">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>With Arg No Return Value</label>
+                </td>
+                <td>
+                    <input type="radio" id="r2" name="chose">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>No Arg With Return Value</label>
+                </td>
+                <td>
+                    <input type="radio" id="r3" name="chose">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>With Arg With Return Value</label>
+                </td>
+                <td>
+                    <input type="radio" id="r4" name="chose">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Use Of Function Expression</label>
+                </td>
+                <td>
+                    <input type="radio" id="r5" name="chose">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Use Of Call Back</label>
+                </td>
+                <td>
+                    <input type="radio" id="r6" name="chose">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Use Of Arrow Function</label>
+                </td>
+                <td>
+                    <input type="radio" id="r7" name="chose">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Use Of Promise Function</label>
+                </td>
+                <td>
+                    <input type="radio" id="r8" name="chose">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" id="submit" value="Answer" onclick="func4()">
+                </td>
+                <td>
+                    <span id="result"></span>
+
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
